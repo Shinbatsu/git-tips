@@ -1,0 +1,19 @@
+git --version 
+git config
+git help "command name"/ git "command name" --help /(Linux) man git "command name"
+git status
+git clone "https://github.com/`repos.name`" 
+git add "file or ."
+git rm "file or ."
+git branch "name"
+git commit -m "name"
+git commit --amend
+git log
+git remote add origin <server>
+git push origin master
+git pull
+git checkout "name"
+git restore
+git merge "name"
+git branch -d "name"
+git push
