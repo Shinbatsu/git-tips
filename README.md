@@ -24,7 +24,7 @@ git help "command name"/ git "command name" --help /(UNIX) man git "command name
 git status
 ```
 
-## 5. Clone a remore repos
+## 5. Clone a remote repos
 
 ```git
 git clone "https://github.com/name"
@@ -78,7 +78,7 @@ git remote add "local-name/(origin)" "https://github.com/reposName"
 git push "name/(origin)" "branch/(master)"
 ```
 
-## 14. Pull changes
+## 14. Apply changes
 
 ```git
 git pull "name/(origin)" dev  ==== git fetch + git merge
@@ -126,7 +126,7 @@ git branch -d "branch-name"
 git reset --hard "branch-name(master)"
 ```
 
-## 22. Pull all fetched commits (Do it after "git fetch")
+## 22. Apply all fetched commits (Do it after "git fetch")
 
 ```git
 git merge
