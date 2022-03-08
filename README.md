@@ -21,21 +21,21 @@ These essential Git commands follow the typical flow of day-to-day developmentâ€
 
 ### 1. `git init`  
 Initializes a new Git repository in the current directory.
-**Usage:**  
+
 ```bash
 git init
 ```
 
 ### 2. `git clone`  
 Copies an existing remote repository to your local machine.
-**Usage:**  
+
 ```bash
 git clone <repository-url>
 ```
 
 ### 3. `git status`  
 Shows the current state of your workdir.
-**Usage:**  
+
 ```bash
 git status
 ```
@@ -49,47 +49,48 @@ git add -A       # Add all changes, including deletions
 ```
 
 ### 5. `git diff`  
-Shows the difference between changes in your working directory, staging area, or previous commits.  
-**Usage:**  
+Shows the difference files.
+
 ```bash
 git diff            # Compare working directory to staging  
 git diff --staged   # Compare staging to last commit
+git diff <file>     # Compare files
 ```
 
 ### 6. `git commit`  
-Creates a snapshot of the staged changes with a descriptive message. This forms the project's history.  
-**Usage:**  
+Creates a snapshot of the staged changes with a descriptive message. 
+
 ```bash
-git commit -m "Your message here"
+git commit -m "Commit Header" -m "Commit body"
 ```
 
 ### 7. `git log`  
 Displays the history of commits in the current branch.  
-**Usage:**  
+
 ```bash
 git log
 ```
 
 ### 8. `git branch`  
-Lists, creates, or deletes local branches. Branching allows for isolated feature development.  
-**Usage:**  
+Lists, creates, or deletes local branches. 
+
 ```bash
-git branch              # List branches  
+git branch -a           # List branches  
 git branch <name>       # Create a new branch  
 git branch -d <name>    # Delete a branch
 ```
 
 ### 9. `git checkout`  
-Switches to another branch or restores file changes. Often used to start working on a feature or fix.  
-**Usage:**  
+Switches to another branch or restores file changes.
+
 ```bash
-git checkout <branch>       # Switch to a branch  
+git checkout <branch>       # Switch to a branch(creates if not exists)
 git checkout -b <name>      # Create and switch to a new branch  
 git checkout -- <file>      # Discard local changes
 ```
 
 ### 10. `git merge`  
-Merges selected branch(their files) into current(`git branch`).
+Merge selected branch(its files) into current(`git branch`).
 
 ```bash
 git merge <branch>
@@ -104,6 +105,7 @@ git pull
 
 ### 12. `git push`  
 Sends your local commits to the remote repository.
+
 ```bash
 git push origin <branch>
 ```
