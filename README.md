@@ -11,13 +11,14 @@ A compact guide to mastering Git through essential commands, common pitfalls, ti
 5. Trunc based guide FSM
 6. Commit Convention
 7. Interview questions
+8. Creating pull requests
 
 > [!NOTE]
 > It's really that simple — it covers everything you need to know about Git!
 
 ## Most Used Commands
 
-These essential Git commands follow the typical flow of day-to-day development—from setting up a repository to sharing your work with others. Mastering them will cover the majority of real-world Git usage and significantly improve your efficiency.
+These Git commands follow the typical development workflow—from starting a project to sharing changes. Learning them covers most daily Git usage and boosts your productivity. Ordered by typical workflow.
 
 ### 1. `git init`  
 Initializes a new Git repository in the current directory.
