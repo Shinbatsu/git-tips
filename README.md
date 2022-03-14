@@ -129,8 +129,6 @@ git config user.name "Your Name"
 git config user.email "you@example.com"
 ```
 
----
-
 ### 2. Forgot to Add some Files into Commit
 **Issue:** Commit created, but some changes weren’t added.
 
@@ -138,6 +136,36 @@ git config user.email "you@example.com"
 git add . # add more changes
 git commit --amend --no-edit
 ```
+
+### 3. Committed to the Wrong Branch
+**Issue:** You made changes on `main` instead of a feature branch.
+
+```bash
+git checkout -b feature-branch
+# or if the branch already exists
+# git checkout feature-branch
+git cherry-pick <commit_hash>
+```
+
+### 4. Merge Conflicts
+**Issue:** Conflicts when merging branches.
+
+Git will highlight conflicts in the files. Manually edit them(Some IDEs may help a lot), then:
+
+```bash
+git add <resolved-files>
+git commit
+```
+
+Use tools like `git mergetool` for assistance.
+
+### 5. Accidentally Deleted a File
+**Issue:** Deleted a file you didn’t mean to.
+
+```bash
+git checkout HEAD -- <file>
+```
+
 
 ## Essential Hotkeys
 A quick setup guide and a curated list of powerful Git hotkeys that can significantly boost your speed and efficiency when using Git tools (like GitKraken, SourceTree, or even command-line wrappers).
