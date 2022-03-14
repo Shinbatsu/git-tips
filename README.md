@@ -21,17 +21,17 @@ A compact guide to mastering Git through essential commands, common pitfalls, ti
 These Git commands follow the typical development workflow—from starting a project to sharing changes. Learning them covers most daily Git usage and boosts your productivity. Ordered by typical workflow.
 
 ### 1. `git init`  
-Initializes a new Git repository in the current directory.
+Initializes a new Git repo in the current directory.
 
 ```bash
 git init
 ```
 
 ### 2. `git clone`  
-Copies an existing remote repository to your local machine.
+Copies an existing remote repo to your local machine.
 
 ```bash
-git clone <repository-url>
+git clone <repo-url>
 ```
 
 ### 3. `git status`  
@@ -42,7 +42,8 @@ git status
 ```
 
 ### 4. `git add`  
-Stages changes, telling Git which files to include in the next commit.  
+Stages changes, telling Git which files to include in the next commit.
+
 ```bash
 git add <file>   # Add a specific file  
 git add .        # Add all changes
@@ -98,21 +99,45 @@ git merge <branch>
 ```
 
 ### 11. `git pull`  
-Fetches the latest changes from the remote and merges them into your local branch.
+Fetches the latest changes from the remote and merges them into current branch.
 
 ```bash
 git pull
 ```
 
 ### 12. `git push`  
-Sends your local commits to the remote repository.
+Sends local branch changes to the remote repo.
 
 ```bash
 git push origin <branch>
 ```
 
 ## Common Issues and Fixes
-Mistakes happen—this section covers frequent problems (like accidental commits or branch confusion) and provides clear, effective solutions for each scenario.
+Mistakes happens, so this section covers common problems and best solutions for each case.
+
+### 1. Wrong User Name or Email
+**Issue:** Commits are showing the wrong author name/email.
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+
+If it's a local repo-specific setting:
+```bash
+git config user.name "Your Name"
+git config user.email "you@example.com"
+```
+
+---
+
+### 2. Forgot to Add some Files into Commit
+**Issue:** Commit created, but some changes weren’t added.
+
+```bash
+git add . # add more changes
+git commit --amend --no-edit
+```
 
 ## Essential Hotkeys
 A quick setup guide and a curated list of powerful Git hotkeys that can significantly boost your speed and efficiency when using Git tools (like GitKraken, SourceTree, or even command-line wrappers).
