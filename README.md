@@ -166,6 +166,18 @@ Use tools like `git mergetool` for assistance.
 git checkout HEAD -- <file>
 ```
 
+### 6. Overwritten Local Changes with Pull
+**Issue:** You pulled changes and lost your uncommitted local changes.
+
+If not staged:
+```bash
+git fsck --lost-found
+```
+
+For safety, stash changes before pulling:
+```bash
+git stash
+```
 
 ## Essential Hotkeys
 A quick setup guide and a curated list of powerful Git hotkeys that can significantly boost your speed and efficiency when using Git tools (like GitKraken, SourceTree, or even command-line wrappers).
