@@ -179,6 +179,34 @@ For safety, stash changes before pulling:
 git stash
 ```
 
+### 7. Large File Accidentally Committed
+**Issue:** Accidentally added a large file to Git history.
+
+Use `BFG Repo-Cleaner` or `git filter-branch`.
+
+
+### 8. Need to Undo Last Commit
+**Issue:** Last commit has a mistake.
+
+```bash
+git reset --soft HEAD~1  # Keeps changes
+```
+
+To discard the commit and changes:
+```bash
+git reset --hard HEAD~1
+```
+
+### 9. Forgot to Switch Branch Before Work
+**Issue:** You made changes on the wrong branch.
+
+```bash
+git stash
+git checkout correct-branch
+git stash pop
+```
+
+
 ## Essential Hotkeys
 A quick setup guide and a curated list of powerful Git hotkeys that can significantly boost your speed and efficiency when using Git tools (like GitKraken, SourceTree, or even command-line wrappers).
 
