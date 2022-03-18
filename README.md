@@ -205,7 +205,30 @@ git stash
 git checkout correct-branch
 git stash pop
 ```
+### 10. Lost Commits After Rebase
+**Issue:** Commits disappeared after a rebase.
 
+```bash
+git reflog
+# Find the commit and recover:
+git checkout <commit>
+```
+
+### 11. Differences in Line Endings (Windows vs Linux)
+**Issue:** Files keep showing as changed due to line endings.
+
+Add `.gitattributes` with following line:
+
+```
+* text=auto
+```
+
+Or set config:
+
+```bash
+git config --global core.autocrlf true   # Windows
+git config --global core.autocrlf input  # Linux
+```
 
 ## Essential Hotkeys
 A quick setup guide and a curated list of powerful Git hotkeys that can significantly boost your speed and efficiency when using Git tools (like GitKraken, SourceTree, or even command-line wrappers).
