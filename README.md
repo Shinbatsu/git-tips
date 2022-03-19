@@ -230,6 +230,15 @@ git config --global core.autocrlf true   # Windows
 git config --global core.autocrlf input  # Linux
 ```
 
+### 12. Accidentally Stashed and Lost Work
+**Issue:** You ran `git stash` and now your changes are gone.
+
+```bash
+git stash list
+git stash pop stash@{0}  # or use apply to keep stash
+git stash apply stash@{0}
+```
+
 ## Essential Hotkeys
 A quick setup guide and a curated list of powerful Git hotkeys that can significantly boost your speed and efficiency when using Git tools (like GitKraken, SourceTree, or even command-line wrappers).
 
