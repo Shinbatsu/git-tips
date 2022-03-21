@@ -242,7 +242,6 @@ git stash apply stash@{0}
 ### 13. Need to Revert a Pushed Commit
 **Issue:** A bad commit has already been pushed.
 
-**Fix:**
 ```bash
 git revert <commit_hash>
 ```
