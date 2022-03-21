@@ -239,6 +239,16 @@ git stash pop stash@{0}  # or use apply to keep stash
 git stash apply stash@{0}
 ```
 
+### 13. Need to Revert a Pushed Commit
+**Issue:** A bad commit has already been pushed.
+
+**Fix:**
+```bash
+git revert <commit_hash>
+```
+Creates a new commit that undoes the bad one.
+
+
 ## Essential Hotkeys
 A quick setup guide and a curated list of powerful Git hotkeys that can significantly boost your speed and efficiency when using Git tools (like GitKraken, SourceTree, or even command-line wrappers).
 
