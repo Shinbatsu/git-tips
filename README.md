@@ -263,6 +263,16 @@ git pull --rebase
 git push
 ```
 
+### 16. Need to Rename a Branch
+**Issue:** The branch name is incorrect.
+
+**Fix:**
+```bash
+git branch -m new-name
+git push origin :old-name new-name
+```
+
+
 
 ## Essential Hotkeys
 A quick setup guide and a curated list of powerful Git hotkeys that can significantly boost your speed and efficiency when using Git tools (like GitKraken, SourceTree, or even command-line wrappers).
