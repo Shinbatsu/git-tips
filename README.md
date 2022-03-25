@@ -247,6 +247,22 @@ git revert <commit_hash>
 ```
 Creates a new commit that undoes the bad one.
 
+### 14. Too Many Small Commits
+**Issue:** You want to combine multiple commits into one.
+
+```bash
+git rebase -i HEAD~<n> # where <n> amount of commits
+```
+
+
+### 15. Push Rejected Due to Out-of-Date Branch
+**Issue:** Remote has changes you don't.
+
+```bash
+git pull --rebase
+git push
+```
+
 
 ## Essential Hotkeys
 A quick setup guide and a curated list of powerful Git hotkeys that can significantly boost your speed and efficiency when using Git tools (like GitKraken, SourceTree, or even command-line wrappers).
