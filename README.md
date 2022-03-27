@@ -277,6 +277,18 @@ git push origin :old-name new-name
 git rebase --onto correct-base wrong-base feature-branch
 ```
 
+### 18. Deleted a Branch by Mistake
+**Issue:** You deleted a local or remote branch accidentally.
+
+**Fix (local):**
+```bash
+git reflog
+# Find the branch commit and recreate
+```
+**Fix (remote):**
+Ask a teammate to push it again if needed.
+
+
 
 ## Essential Hotkeys
 A quick setup guide and a curated list of powerful Git hotkeys that can significantly boost your speed and efficiency when using Git tools (like GitKraken, SourceTree, or even command-line wrappers).
