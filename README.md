@@ -281,13 +281,34 @@ git rebase --onto correct-base wrong-base feature-branch
 **Issue:** You deleted a local or remote branch accidentally.
 
 **Fix (local):**
+
 ```bash
 git reflog
 # Find the branch commit and recreate
 ```
+
 **Fix (remote):**
 Ask a teammate to push it again if needed.
 
+### 19. Want to See File History
+**Issue:** You want to track the changes made to a specific file.
+
+**Fix:**
+```bash
+git log -- <file>
+git blame <file>
+```
+
+### 20. Detached HEAD State
+**Issue:** You checked out a commit, not a branch.
+
+```bash
+git checkout -b new-branch  # To save your state
+```
+Or just checkout a branch to exit:
+```bash
+git checkout main
+```
 
 
 ## Essential Hotkeys
