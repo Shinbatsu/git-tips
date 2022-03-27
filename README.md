@@ -254,7 +254,6 @@ Creates a new commit that undoes the bad one.
 git rebase -i HEAD~<n> # where <n> amount of commits
 ```
 
-
 ### 15. Push Rejected Due to Out-of-Date Branch
 **Issue:** Remote has changes you don't.
 
@@ -266,12 +265,17 @@ git push
 ### 16. Need to Rename a Branch
 **Issue:** The branch name is incorrect.
 
-**Fix:**
 ```bash
 git branch -m new-name
 git push origin :old-name new-name
 ```
 
+### 17. Working on Wrong Base Branch
+**Issue:** Your feature branch was created from the wrong base.
+
+```bash
+git rebase --onto correct-base wrong-base feature-branch
+```
 
 
 ## Essential Hotkeys
