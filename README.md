@@ -293,7 +293,6 @@ Ask a teammate to push it again if needed.
 ### 19. Want to See File History
 **Issue:** You want to track the changes made to a specific file.
 
-**Fix:**
 ```bash
 git log -- <file>
 git blame <file>
@@ -309,6 +308,21 @@ Or just checkout a branch to exit:
 ```bash
 git checkout main
 ```
+
+### 21. Files Are Committed, but Changes Don’t Appear After Pull
+**Issue:** You committed files (e.g., configs or logs), but after pulling, changes don’t sync properly—likely because Git is tracking the file but ignoring internal changes.
+
+**Cause:** The file was added before updating `.gitignore`, or line endings / file permissions confuse Git on some systems. Sometimes it may be useful if you want track the file but not its changes(lines).
+
+- To force Git to track changes again:
+
+```bash
+git rm --cached <file>
+git add <file>
+git commit -m "Re-track file changes"
+```
+- Double-check `.gitattributes` and `.gitignore` to ensure nothing blocks updates.
+
 
 
 ## Essential Hotkeys
