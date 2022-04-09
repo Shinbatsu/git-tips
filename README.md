@@ -323,10 +323,12 @@ git commit -m "Re-track file changes"
 ```
 - Double-check `.gitattributes` and `.gitignore` to ensure nothing blocks updates.
 
-
-
 ## Essential Hotkeys
-A quick setup guide and a curated list of powerful Git hotkeys that can significantly boost your speed and efficiency when using Git tools (like GitKraken, SourceTree, or even command-line wrappers).
+Here is a list of my shorcuts that i've using each day. It will improve your speed a lot but require some words to memorize.
+
+This repo contains a file named `gc`. Add this into your PATH.
+You can do this manyally or using gc_install.sh that must be executed via git bash terminal.
+
 
 ## Tips and Tricks
 Handy tricks to make you look like a seasoned Git expert—alias setups, stash magic, rebase powers, and much more.
