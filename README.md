@@ -329,6 +329,39 @@ Here is a list of my shorcuts that i've using each day. It will improve your spe
 This repo contains a file named `gc`. Add this into your PATH.
 You can do this manyally or using gc_install.sh that must be executed via git bash terminal.
 
+```shell
+gc
+Usage: git-cheat [option]
+
+Mandatory arguments:
+
+  --setup -s          --> git setup and configuration
+  --init -i           --> creation of new project
+  --add -a            --> adding files to git
+  --delete -d         --> deleting files from git
+  --commit -c         --> git commit helper
+  --branch -b         --> git branching info
+  --merge -m          --> git merging info
+  --rebase -rb        --> git rebase info
+  --update -u         --> updating current repo
+  --stash -st         --> stashing in current repo
+  --inspect -in       --> git inspection, log,show...
+  --remote -r         --> git remote helper
+  --patch -p          --> git patching helper
+  --debug -dg         --> git debugging
+  --email -e          --> git email helper
+  --tags -t           --> git tags helper
+  --reset -rs         --> git reset helper
+  --conflict -cn      --> git conflict resolving helper
+  --revert -rv        --> git reverting helper
+  --fix-mistakes -f   --> fix mistakes in git
+  --submodules -sm    --> git submodules helper
+  --archive -ar       --> archive your repo
+
+  --help -h ?         --> prints usage of git-cheat
+  --version -v        --> prints version of git-cheat
+```
+
 
 ## Tips and Tricks
 Handy tricks to make you look like a seasoned Git expert—alias setups, stash magic, rebase powers, and much more.
