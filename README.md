@@ -366,6 +366,25 @@ Mandatory arguments:
 ## Tips and Tricks
 Handy tricks to make you look like a seasoned Git expert—alias setups, stash magic, rebase powers, and much more.
 
+* **Use Hooks for Automation**  
+Use `.git/hooks/pre-commit` to auto-lint, format, or reject bad commits.  
+```bash  
+#!/bin/sh  
+black .  
+```  
+  
+* **Compare Any Two Commits (Not Just HEAD)**
+
+```bash  
+git diff <commit1> <commit2>  
+```  
+  
+* **3. Show Pretty Commit History**
+```bash  
+git log --graph --oneline --decorate --all  
+```  
+Great for reviewing merges and diverging branches.  
+  
 ## Trunk-Based Workflow (FSM Guide)
 A simplified Finite State Machine diagram to help you follow trunk-based development practices. Learn what action to take based on the current state of your code or repo.
 
