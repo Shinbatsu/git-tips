@@ -399,6 +399,18 @@ git update-index --assume-unchanged path/to/file
 ```  
 Keeps file tracked but ignores local changes.  
 
+* **Temporarily Keep Changes Without Committing**  
+```bash  
+git stash push -m "partial work" path/to/file  
+```  
+Experienced users stash selectively—not everything at once.  
+  
+* **Clean All Untracked Files Including Ignored** 
+```bash  
+git clean -xfd  
+```  
+
+
 ## Trunk-Based Workflow (FSM Guide)
 A simplified Finite State Machine diagram to help you follow trunk-based development practices. Learn what action to take based on the current state of your code or repo.
 
