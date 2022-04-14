@@ -379,12 +379,26 @@ black .
 git diff <commit1> <commit2>  
 ```  
   
-* **3. Show Pretty Commit History**
+* **Show Pretty Commit History**
 ```bash  
 git log --graph --oneline --decorate --all  
 ```  
 Great for reviewing merges and diverging branches.  
+
+* **Prune Deleted Remotes**
+
+```bash  
+git remote prune origin  
+```  
+Cleans up remote-tracking branches that no longer exist.  
   
+* **Ignore Local Changes Without .gitignore**
+
+```bash  
+git update-index --assume-unchanged path/to/file  
+```  
+Keeps file tracked but ignores local changes.  
+
 ## Trunk-Based Workflow (FSM Guide)
 A simplified Finite State Machine diagram to help you follow trunk-based development practices. Learn what action to take based on the current state of your code or repo.
 
