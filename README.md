@@ -410,9 +410,112 @@ Experienced users stash selectively—not everything at once.
 git clean -xfd  
 ```  
 
-
 ## Trunk-Based Workflow (FSM Guide)
-A simplified Finite State Machine diagram to help you follow trunk-based development practices. Learn what action to take based on the current state of your code or repo.
+A simplified Finite State Machine diagram to help you follow trunk-based development practices.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Main
+
+    %% --- Start feature work ---
+    Main --> FeatureBranch : create feature branch
+
+    FeatureBranch --> Working : modify or create files
+    Working --> Staging : stage changes (git add)
+    Staging --> Committing : commit changes (git commit)
+
+    Committing --> Working : need more changes
+    Committing --> Reviewing : ready for review or merge
+
+    %% --- Optional PR flow ---
+    Reviewing --> PullRequest : create pull request
+    PullRequest --> CodeReview : request review
+    CodeReview --> ChangesRequested : reviewer requests changes
+    CodeReview --> Approved : reviewer approves
+
+    ChangesRequested --> Working : apply review feedback
+    Approved --> Merging : merge branch
+
+    %% --- Direct merge path (no PR) ---
+    Reviewing --> Merging : merge without pull request
+
+    %% --- Merge and CI ---
+    Merging --> MergeConflict : merge conflict detected
+    MergeConflict --> ConflictResolving : resolve conflicts manually
+    ConflictResolving --> Working : edit and stage again
+
+    Merging --> CI : run CI pipeline
+    CI --> CI_Passed : CI passed
+    CI --> CI_Failed : CI failed
+
+    CI_Passed --> Main : return to trunk
+    CI_Failed --> Working : fix code
+
+    %% --- Commit management ---
+    Committing --> Amending : amend commit
+    Amending --> Reviewing : continue review
+
+    Committing --> Squashing : squash commits
+    Squashing --> Reviewing : continue review
+
+    Committing --> Reverting : revert commit
+    Reverting --> Working : reapply or fix
+
+    %% --- Undo path ---
+    Working --> Undoing : discard local changes
+    Undoing --> Working
+
+    %% --- Cancel PR ---
+    PullRequest --> CancellingPR : cancel pull request
+    CancellingPR --> Main
+
+    %% --- Hotfix path ---
+    Main --> HotfixBranch : create hotfix branch
+    HotfixBranch --> Working
+
+    %% --- Dirty commit directly to main ---
+    Main --> DirectCommit : commit directly to main
+    DirectCommit --> Working
+
+    %% --- Closing loop ---
+    ConflictResolving --> Staging
+    Reverting --> Staging
+    Amending --> Staging
+    Squashing --> Staging
+    Working --> Staging
+    CI_Failed --> Staging
+```
 
 ## Interview Questions
-A categorized collection of real Git interview questions, sorted by experience level. Most are from actual interviews. Feel free to contribute anything I might've missed!
+A categorized collection of real Git interview questions, sorted by experience level. Most are from actual interviews.
+
+### 🟢 Beginner Level
+
+#### 1. What is a Version Control System (VCS)?
+A VCS tracks changes made by developers, maintaining code history, enabling bug fixes, new code additions, and easy restoration of previous working versions.
+
+#### 2. What does `git status` do?
+Shows the difference between the working directory and the index (staging area), helping track changes that are staged or unstaged.
+
+#### 3. What does `git add` do?
+Adds files or changes to the staging area (index) for the next commit. You can add all changes (`git add .`), specific files (`git add <file>`), or folders (`git add <folder>/`).
+
+#### 4. What is the "Index" or "Staging Area"?
+A temporary area where changes are formatted and reviewed before committing.
+
+#### 5. How to create a Git repository?
+Run `git init` in a project folder to create a `.git` directory and initialize the repository.
+
+#### 6. What is the difference between `git remote` and `git clone`?
+- `git remote`: Adds a named remote URL to an existing repository.
+- `git clone`: Creates a new local repository by copying an existing remote one.
+
+#### 7. What does `git stash` do?
+Temporarily saves changes in the working directory to a stack, allowing branch switching without losing edits.
+
+#### 8. How to delete a Git branch?
+- Locally: `git branch -d <branch_name>`
+- Remotely: `git push origin --delete <branch_name>`
+
+---
+
