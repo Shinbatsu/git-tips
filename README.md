@@ -519,3 +519,43 @@ Temporarily saves changes in the working directory to a stack, allowing branch s
 
 ---
 
+### 🟠 Intermediate Level
+
+#### 1. What is the `git reflog` command?
+Tracks all changes in branch references (like commits, checkouts), helping recover lost branches or commits.
+
+#### 2. What does a commit object contain?
+- Snapshot of project files at a point in time.
+- Reference to parent commit(s).
+- Unique SHA-1 hash identifier.
+
+####  3. What are Git config levels?
+- **System**: Applies to all users on the system (`--system`).
+- **Global**: Applies to the current user (`--global`).
+- **Local**: Applies to the current repository (`--local`, default).
+
+#### 4. What is a detached HEAD?
+When HEAD points to a commit or tag instead of a branch, causing "floating" commits not linked to any branch. Avoid by creating a new branch from that commit (`git checkout -b <branch>`).
+
+#### 5. What does `git annotate` do?
+Shows line-by-line commit info for a file, indicating which commit introduced each line.
+
+#### 6. Difference between `git stash apply` and `git stash pop`?
+- `apply`: Applies stash but keeps it in the stash list.
+- `pop`: Applies stash and removes it from the stash list.
+
+#### 7. Difference between `git diff` and `git status`?
+- `git diff`: Shows specific content changes between commits or working directory and index.
+- `git status`: Shows which files are staged, unstaged, or untracked.
+
+#### 8. Difference between `git pull` and `git fetch`?
+- `git fetch`: Downloads changes but doesn’t merge.
+- `git pull`: Fetches and merges changes (`git fetch + git merge`).
+
+#### 9. Why is Git easy to work with?
+- Powerful branching and merging.
+- Distributed system with local and remote repos.
+- Pull requests enable collaboration.
+- Speeds up release cycles.
+
+---
