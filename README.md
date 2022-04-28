@@ -559,3 +559,33 @@ Shows line-by-line commit info for a file, indicating which commit introduced ea
 - Speeds up release cycles.
 
 ---
+
+### 🟣 Advanced Level
+
+#### 1. How to squash multiple commits into one?
+Run `git rebase -i HEAD~N` to combine the last N commits into a single commit. Use carefully as it rewrites history.
+
+#### 2. How to recover a deleted branch that was pushed remotely?
+Use `git reflog` to find the last commit of the branch and recreate it by checking out that commit as a new branch.
+
+#### 3. How to resolve Git conflicts?
+- Identify conflicted files.
+- Manually edit to resolve conflicts.
+- Stage resolved files (`git add`).
+- Commit the merge (`git commit`).
+- Push changes.
+
+#### 4. What command lists branches merged to master?
+`git branch --merged` shows branches merged into the current branch. `--no-merged` shows unmerged branches.
+
+#### 5. Best practice: amend a commit or create a new one?
+Prefer creating a new commit to avoid losing history or mixing unrelated changes.
+
+#### 6. How to revert a bad commit already pushed?
+- Fix and commit new changes.
+- Or use `git revert <bad_commit>` to create a new commit that undoes the bad one.
+
+#### 7. What does `git cherry-pick` do?
+Applies specific commits from one branch onto another, useful for backporting or selective changes.
+
+---
