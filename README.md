@@ -410,82 +410,6 @@ Experienced users stash selectively—not everything at once.
 git clean -xfd  
 ```  
 
-## Trunk-Based Workflow (FSM Guide)
-A simplified Finite State Machine diagram to help you follow trunk-based development practices.
-
-```mermaid
-stateDiagram-v2
-    [*] --> Main
-
-    %% --- Start feature work ---
-    Main --> FeatureBranch : create feature branch
-
-    FeatureBranch --> Working : modify or create files
-    Working --> Staging : stage changes (git add)
-    Staging --> Committing : commit changes (git commit)
-
-    Committing --> Working : need more changes
-    Committing --> Reviewing : ready for review or merge
-
-    %% --- Optional PR flow ---
-    Reviewing --> PullRequest : create pull request
-    PullRequest --> CodeReview : request review
-    CodeReview --> ChangesRequested : reviewer requests changes
-    CodeReview --> Approved : reviewer approves
-
-    ChangesRequested --> Working : apply review feedback
-    Approved --> Merging : merge branch
-
-    %% --- Direct merge path (no PR) ---
-    Reviewing --> Merging : merge without pull request
-
-    %% --- Merge and CI ---
-    Merging --> MergeConflict : merge conflict detected
-    MergeConflict --> ConflictResolving : resolve conflicts manually
-    ConflictResolving --> Working : edit and stage again
-
-    Merging --> CI : run CI pipeline
-    CI --> CI_Passed : CI passed
-    CI --> CI_Failed : CI failed
-
-    CI_Passed --> Main : return to trunk
-    CI_Failed --> Working : fix code
-
-    %% --- Commit management ---
-    Committing --> Amending : amend commit
-    Amending --> Reviewing : continue review
-
-    Committing --> Squashing : squash commits
-    Squashing --> Reviewing : continue review
-
-    Committing --> Reverting : revert commit
-    Reverting --> Working : reapply or fix
-
-    %% --- Undo path ---
-    Working --> Undoing : discard local changes
-    Undoing --> Working
-
-    %% --- Cancel PR ---
-    PullRequest --> CancellingPR : cancel pull request
-    CancellingPR --> Main
-
-    %% --- Hotfix path ---
-    Main --> HotfixBranch : create hotfix branch
-    HotfixBranch --> Working
-
-    %% --- Dirty commit directly to main ---
-    Main --> DirectCommit : commit directly to main
-    DirectCommit --> Working
-
-    %% --- Closing loop ---
-    ConflictResolving --> Staging
-    Reverting --> Staging
-    Amending --> Staging
-    Squashing --> Staging
-    Working --> Staging
-    CI_Failed --> Staging
-```
-
 ## Interview Questions
 A categorized collection of real Git interview questions, sorted by experience level. Most are from actual interviews.
 
@@ -589,3 +513,80 @@ Prefer creating a new commit to avoid losing history or mixing unrelated changes
 Applies specific commits from one branch onto another, useful for backporting or selective changes.
 
 ---
+
+
+## Trunk-Based Workflow (FSM Guide)
+A simplified Finite State Machine diagram to help you follow trunk-based development practices.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Main
+
+    %% --- Start feature work ---
+    Main --> FeatureBranch : create feature branch
+
+    FeatureBranch --> Working : modify or create files
+    Working --> Staging : stage changes (git add)
+    Staging --> Committing : commit changes (git commit)
+
+    Committing --> Working : need more changes
+    Committing --> Reviewing : ready for review or merge
+
+    %% --- Optional PR flow ---
+    Reviewing --> PullRequest : create pull request
+    PullRequest --> CodeReview : request review
+    CodeReview --> ChangesRequested : reviewer requests changes
+    CodeReview --> Approved : reviewer approves
+
+    ChangesRequested --> Working : apply review feedback
+    Approved --> Merging : merge branch
+
+    %% --- Direct merge path (no PR) ---
+    Reviewing --> Merging : merge without pull request
+
+    %% --- Merge and CI ---
+    Merging --> MergeConflict : merge conflict detected
+    MergeConflict --> ConflictResolving : resolve conflicts manually
+    ConflictResolving --> Working : edit and stage again
+
+    Merging --> CI : run CI pipeline
+    CI --> CI_Passed : CI passed
+    CI --> CI_Failed : CI failed
+
+    CI_Passed --> Main : return to trunk
+    CI_Failed --> Working : fix code
+
+    %% --- Commit management ---
+    Committing --> Amending : amend commit
+    Amending --> Reviewing : continue review
+
+    Committing --> Squashing : squash commits
+    Squashing --> Reviewing : continue review
+
+    Committing --> Reverting : revert commit
+    Reverting --> Working : reapply or fix
+
+    %% --- Undo path ---
+    Working --> Undoing : discard local changes
+    Undoing --> Working
+
+    %% --- Cancel PR ---
+    PullRequest --> CancellingPR : cancel pull request
+    CancellingPR --> Main
+
+    %% --- Hotfix path ---
+    Main --> HotfixBranch : create hotfix branch
+    HotfixBranch --> Working
+
+    %% --- Dirty commit directly to main ---
+    Main --> DirectCommit : commit directly to main
+    DirectCommit --> Working
+
+    %% --- Closing loop ---
+    ConflictResolving --> Staging
+    Reverting --> Staging
+    Amending --> Staging
+    Squashing --> Staging
+    Working --> Staging
+    CI_Failed --> Staging
+```
