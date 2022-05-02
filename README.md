@@ -8,10 +8,9 @@ A compact guide to mastering Git through essential commands, common pitfalls, ti
 2. Popular issues
 3. Well known hotkeys
 4. Some tips and tricks
-5. Trunc based guide FSM
-6. Commit Convention
-7. Interview questions
-8. Creating pull requests
+5. Interview questions
+6. Trunc based guide FSM
+7. Commit Convention
 
 > [!NOTE]
 > It's really that simple — it covers everything you need to know about Git!
@@ -590,3 +589,33 @@ stateDiagram-v2
     Working --> Staging
     CI_Failed --> Staging
 ```
+
+ ## Commit Convention
+ 
+ Standardizing commit messages improves readability, traceability, and automation (e.g., changelogs, releases). This section outlines a consistent format based on commonly used conventions.
+ 
+ ### Commit Format
+ 
+ ```
+ <type>(<optional scope>): <description>
+ 
+ <optional body>
+ 
+ <optional footer>
+ ```
+ 
+ - **Example**: `feat(auth): add JWT-based login`
+ 
+ ### Special Commit Types
+ 
+ - **Initial Commit**:  
+   `chore: init`
+ 
+ - **Merge Commit**:  
+   `Merge branch 'feature/login'` (Git default)
+ 
+ - **Revert Commit**:  
+   `Revert "feat(auth): add JWT-based login"`
+ 
+ ---
+ 
