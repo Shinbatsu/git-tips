@@ -618,4 +618,22 @@ stateDiagram-v2
    `Revert "feat(auth): add JWT-based login"`
  
  ---
+
+ ### Types
  
+ Use one of the following types:
+ 
+  Type       Description                                                          
+ ---------------------------------------------------------------------------------
+  `feat`     New feature added to the API or UI                                   
+  `fix`      Bug fix for an existing feature                                      
+  `refactor` Code restructure without changing behavior                           
+  `perf`     Performance-related improvements                                     
+  `style`    Code style changes (formatting, spaces, etc.) with no logic impact  
+  `test`     Adding or correcting tests                                           
+  `docs`     Documentation-only changes                                           
+  `build`    Changes affecting build tools, CI/CD, dependencies                   
+  `ops`      Operations-related (deployment, infra, monitoring)                   
+  `chore`    Misc tasks like `.gitignore` or non-functional changes               
+ 
+ ---
