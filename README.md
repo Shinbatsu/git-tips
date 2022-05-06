@@ -334,31 +334,31 @@ Usage: git-cheat [option]
 
 Mandatory arguments:
 
-  --setup -s          --> git setup and configuration
-  --init -i           --> creation of new project
-  --add -a            --> adding files to git
-  --delete -d         --> deleting files from git
-  --commit -c         --> git commit helper
-  --branch -b         --> git branching info
-  --merge -m          --> git merging info
-  --rebase -rb        --> git rebase info
-  --update -u         --> updating current repo
-  --stash -st         --> stashing in current repo
-  --inspect -in       --> git inspection, log,show...
-  --remote -r         --> git remote helper
-  --patch -p          --> git patching helper
-  --debug -dg         --> git debugging
-  --email -e          --> git email helper
-  --tags -t           --> git tags helper
-  --reset -rs         --> git reset helper
-  --conflict -cn      --> git conflict resolving helper
-  --revert -rv        --> git reverting helper
-  --fix-mistakes -f   --> fix mistakes in git
-  --submodules -sm    --> git submodules helper
-  --archive -ar       --> archive your repo
+ --setup -s          --> git setup and configuration
+ --init -i           --> creation of new project
+ --add -a            --> adding files to git
+ --delete -d         --> deleting files from git
+ --commit -c         --> git commit helper
+ --branch -b         --> git branching info
+ --merge -m          --> git merging info
+ --rebase -rb        --> git rebase info
+ --update -u         --> updating current repo
+ --stash -st         --> stashing in current repo
+ --inspect -in       --> git inspection, log,show...
+ --remote -r         --> git remote helper
+ --patch -p          --> git patching helper
+ --debug -dg         --> git debugging
+ --email -e          --> git email helper
+ --tags -t           --> git tags helper
+ --reset -rs         --> git reset helper
+ --conflict -cn      --> git conflict resolving helper
+ --revert -rv        --> git reverting helper
+ --fix-mistakes -f   --> fix mistakes in git
+ --submodules -sm    --> git submodules helper
+ --archive -ar       --> archive your repo
 
-  --help -h ?         --> prints usage of git-cheat
-  --version -v        --> prints version of git-cheat
+ --help -h ?         --> prints usage of git-cheat
+ --version -v        --> prints version of git-cheat
 ```
 
 
@@ -371,13 +371,13 @@ Use `.git/hooks/pre-commit` to auto-lint, format, or reject bad commits.
 #!/bin/sh  
 black .  
 ```  
-  
+ 
 * **Compare Any Two Commits (Not Just HEAD)**
 
 ```bash  
 git diff <commit1> <commit2>  
 ```  
-  
+ 
 * **Show Pretty Commit History**
 ```bash  
 git log --graph --oneline --decorate --all  
@@ -390,7 +390,7 @@ Great for reviewing merges and diverging branches.
 git remote prune origin  
 ```  
 Cleans up remote-tracking branches that no longer exist.  
-  
+ 
 * **Ignore Local Changes Without .gitignore**
 
 ```bash  
@@ -403,7 +403,7 @@ Keeps file tracked but ignores local changes.
 git stash push -m "partial work" path/to/file  
 ```  
 Experienced users stash selectively—not everything at once.  
-  
+ 
 * **Clean All Untracked Files Including Ignored** 
 ```bash  
 git clean -xfd  
@@ -519,144 +519,180 @@ A simplified Finite State Machine diagram to help you follow trunk-based develop
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Main
+   [*] --> Main
 
-    %% --- Start feature work ---
-    Main --> FeatureBranch : create feature branch
+   %% --- Start feature work ---
+   Main --> FeatureBranch : create feature branch
 
-    FeatureBranch --> Working : modify or create files
-    Working --> Staging : stage changes (git add)
-    Staging --> Committing : commit changes (git commit)
+   FeatureBranch --> Working : modify or create files
+   Working --> Staging : stage changes (git add)
+   Staging --> Committing : commit changes (git commit)
 
-    Committing --> Working : need more changes
-    Committing --> Reviewing : ready for review or merge
+   Committing --> Working : need more changes
+   Committing --> Reviewing : ready for review or merge
 
-    %% --- Optional PR flow ---
-    Reviewing --> PullRequest : create pull request
-    PullRequest --> CodeReview : request review
-    CodeReview --> ChangesRequested : reviewer requests changes
-    CodeReview --> Approved : reviewer approves
+   %% --- Optional PR flow ---
+   Reviewing --> PullRequest : create pull request
+   PullRequest --> CodeReview : request review
+   CodeReview --> ChangesRequested : reviewer requests changes
+   CodeReview --> Approved : reviewer approves
 
-    ChangesRequested --> Working : apply review feedback
-    Approved --> Merging : merge branch
+   ChangesRequested --> Working : apply review feedback
+   Approved --> Merging : merge branch
 
-    %% --- Direct merge path (no PR) ---
-    Reviewing --> Merging : merge without pull request
+   %% --- Direct merge path (no PR) ---
+   Reviewing --> Merging : merge without pull request
 
-    %% --- Merge and CI ---
-    Merging --> MergeConflict : merge conflict detected
-    MergeConflict --> ConflictResolving : resolve conflicts manually
-    ConflictResolving --> Working : edit and stage again
+   %% --- Merge and CI ---
+   Merging --> MergeConflict : merge conflict detected
+   MergeConflict --> ConflictResolving : resolve conflicts manually
+   ConflictResolving --> Working : edit and stage again
 
-    Merging --> CI : run CI pipeline
-    CI --> CI_Passed : CI passed
-    CI --> CI_Failed : CI failed
+   Merging --> CI : run CI pipeline
+   CI --> CI_Passed : CI passed
+   CI --> CI_Failed : CI failed
 
-    CI_Passed --> Main : return to trunk
-    CI_Failed --> Working : fix code
+   CI_Passed --> Main : return to trunk
+   CI_Failed --> Working : fix code
 
-    %% --- Commit management ---
-    Committing --> Amending : amend commit
-    Amending --> Reviewing : continue review
+   %% --- Commit management ---
+   Committing --> Amending : amend commit
+   Amending --> Reviewing : continue review
 
-    Committing --> Squashing : squash commits
-    Squashing --> Reviewing : continue review
+   Committing --> Squashing : squash commits
+   Squashing --> Reviewing : continue review
 
-    Committing --> Reverting : revert commit
-    Reverting --> Working : reapply or fix
+   Committing --> Reverting : revert commit
+   Reverting --> Working : reapply or fix
 
-    %% --- Undo path ---
-    Working --> Undoing : discard local changes
-    Undoing --> Working
+   %% --- Undo path ---
+   Working --> Undoing : discard local changes
+   Undoing --> Working
 
-    %% --- Cancel PR ---
-    PullRequest --> CancellingPR : cancel pull request
-    CancellingPR --> Main
+   %% --- Cancel PR ---
+   PullRequest --> CancellingPR : cancel pull request
+   CancellingPR --> Main
 
-    %% --- Hotfix path ---
-    Main --> HotfixBranch : create hotfix branch
-    HotfixBranch --> Working
+   %% --- Hotfix path ---
+   Main --> HotfixBranch : create hotfix branch
+   HotfixBranch --> Working
 
-    %% --- Dirty commit directly to main ---
-    Main --> DirectCommit : commit directly to main
-    DirectCommit --> Working
+   %% --- Dirty commit directly to main ---
+   Main --> DirectCommit : commit directly to main
+   DirectCommit --> Working
 
-    %% --- Closing loop ---
-    ConflictResolving --> Staging
-    Reverting --> Staging
-    Amending --> Staging
-    Squashing --> Staging
-    Working --> Staging
-    CI_Failed --> Staging
+   %% --- Closing loop ---
+   ConflictResolving --> Staging
+   Reverting --> Staging
+   Amending --> Staging
+   Squashing --> Staging
+   Working --> Staging
+   CI_Failed --> Staging
 ```
 
- ## Commit Convention
- 
- Standardizing commit messages improves readability, traceability, and automation (e.g., changelogs, releases). This section outlines a consistent format based on commonly used conventions.
- 
- ### Commit Format
- 
- ```
- <type>(<optional scope>): <description>
- 
- <optional body>
- 
- <optional footer>
- ```
- 
- - **Example**: `feat(auth): add JWT-based login`
- 
- ### Special Commit Types
- 
- - **Initial Commit**:  
-   `chore: init`
- 
- - **Merge Commit**:  
-   `Merge branch 'feature/login'` (Git default)
- 
- - **Revert Commit**:  
-   `Revert "feat(auth): add JWT-based login"`
- 
- ---
+## Commit Convention
 
- ### Types
- 
- Use one of the following types:
- 
-  Type       Description                                                          
- ---------------------------------------------------------------------------------
-  `feat`     New feature added to the API or UI                                   
-  `fix`      Bug fix for an existing feature                                      
-  `refactor` Code restructure without changing behavior                           
-  `perf`     Performance-related improvements                                     
-  `style`    Code style changes (formatting, spaces, etc.) with no logic impact  
-  `test`     Adding or correcting tests                                           
-  `docs`     Documentation-only changes                                           
-  `build`    Changes affecting build tools, CI/CD, dependencies                   
-  `ops`      Operations-related (deployment, infra, monitoring)                   
-  `chore`    Misc tasks like `.gitignore` or non-functional changes               
- 
- ---
+Standardizing commit messages improves readability, traceability, and automation (e.g., changelogs, releases). This section outlines a consistent format based on commonly used conventions.
 
- 
- ### Scope (Optional)
- 
- The scope adds context to the change (e.g., `auth`, `db`, `ui`):
- 
- - Format: `<type>(<scope>): description`
- - Example: `fix(api): handle empty response case`
- - Don’t use issue numbers as scope names
- 
- ---
- 
- ### Breaking Changes
- 
- If a commit introduces a breaking change:
- 
- - Add an **exclamation mark**:  
-   `feat(api)!: remove deprecated status endpoint`
- 
- - In the **footer**, start with:  
-   `BREAKING CHANGE: explain what broke and how to migrate`
- 
- ---
+### Commit Format
+
+```
+<type>(<optional scope>): <description>
+
+<optional body>
+
+<optional footer>
+```
+
+- **Example**: `feat(auth): add JWT-based login`
+
+### Special Commit Types
+
+- **Initial Commit**:  
+  `chore: init`
+
+- **Merge Commit**:  
+  `Merge branch 'feature/login'` (Git default)
+
+- **Revert Commit**:  
+  `Revert "feat(auth): add JWT-based login"`
+
+---
+
+### Types
+
+Use one of the following types:
+
+ Type       Description                                                          
+---------------------------------------------------------------------------------
+ `feat`     New feature added to the API or UI                                   
+ `fix`      Bug fix for an existing feature                                      
+ `refactor` Code restructure without changing behavior                           
+ `perf`     Performance-related improvements                                     
+ `style`    Code style changes (formatting, spaces, etc.) with no logic impact  
+ `test`     Adding or correcting tests                                           
+ `docs`     Documentation-only changes                                           
+ `build`    Changes affecting build tools, CI/CD, dependencies                   
+ `ops`      Operations-related (deployment, infra, monitoring)                   
+ `chore`    Misc tasks like `.gitignore` or non-functional changes               
+
+---
+
+
+### Scope (Optional)
+
+The scope adds context to the change (e.g., `auth`, `db`, `ui`):
+
+- Format: `<type>(<scope>): description`
+- Example: `fix(api): handle empty response case`
+- Don’t use issue numbers as scope names
+
+---
+
+### Breaking Changes
+
+If a commit introduces a breaking change:
+
+- Add an **exclamation mark**:  
+  `feat(api)!: remove deprecated status endpoint`
+
+- In the **footer**, start with:  
+  `BREAKING CHANGE: explain what broke and how to migrate`
+
+---
+
+### Description Rules
+
+- Always required  
+- Use **imperative mood**, e.g., “add login”, not “added” or “adds”  
+- Start with lowercase  
+- **No period** at the end  
+
+---
+
+### Body (Optional)
+
+Use the body to explain **why** the change was made and how it differs from prior behavior.
+
+---
+
+### Footer (Optional, but Required for Breaking Changes)
+
+Includes:
+
+- Issue references (e.g., `Closes #42`)  
+- Details on breaking changes  
+  Example:  
+  ```
+  BREAKING CHANGE: auth service now requires email verification
+  ```
+
+---
+
+### Versioning Guide
+
+Used for automating version bumps (e.g., semantic-release):
+
+- **Breaking changes** → major version  
+- `feat`, `fix` commits → minor version  
+- Other changes → patch version
