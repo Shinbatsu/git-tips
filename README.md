@@ -637,3 +637,26 @@ stateDiagram-v2
   `chore`    Misc tasks like `.gitignore` or non-functional changes               
  
  ---
+
+ 
+ ### Scope (Optional)
+ 
+ The scope adds context to the change (e.g., `auth`, `db`, `ui`):
+ 
+ - Format: `<type>(<scope>): description`
+ - Example: `fix(api): handle empty response case`
+ - Don’t use issue numbers as scope names
+ 
+ ---
+ 
+ ### Breaking Changes
+ 
+ If a commit introduces a breaking change:
+ 
+ - Add an **exclamation mark**:  
+   `feat(api)!: remove deprecated status endpoint`
+ 
+ - In the **footer**, start with:  
+   `BREAKING CHANGE: explain what broke and how to migrate`
+ 
+ ---
