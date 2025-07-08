@@ -330,7 +330,7 @@ You can do this manyally or using gc_install.sh that must be executed via git ba
 
 ```shell
 gc
-Usage: git-cheat [option]
+Usage: gc [option]
 
 Mandatory arguments:
 
