@@ -4,13 +4,13 @@
 
 A compact guide to mastering Git through essential commands, common pitfalls, time-saving shortcuts, expert tips, workflow patterns, and interview preparation.
 
-1. Most used commands
-2. Popular issues
-3. Well known hotkeys
-4. Some tips and tricks
-5. Interview questions
-6. Trunc based guide FSM
-7. Commit Convention
+1. [Most Used Commands](#most-used-commands)
+2. [Popular Issues](#common-issues-and-fixes)
+3. [Well Known Hotkeys](#essential-hotkeys)
+4. [Some Tips and Tricks](#tips-and-tricks)
+5. [Interview Questions](#interview-questions)
+6. [Trunc Based Guide FSM](#trunk-based-workflow-fsm-guide)
+7. [Commit Convention](#commit-convention)
 
 > [!NOTE]
 > It's really that simple — it covers everything you need to know about Git!
